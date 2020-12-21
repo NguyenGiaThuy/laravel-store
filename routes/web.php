@@ -47,3 +47,12 @@ Route::group([
     Route::delete('/orders/{order}/products/{product}', [App\Http\Controllers\Editor\OrderController::class, 'destroyProduct'])->name('orders.destroy-product');
 });
 
+Route::group([
+    'as' => 'customer.',
+    'namespace' => 'App\Http\Controllers\Customer',
+    'middleware' => 'role',
+], function() {
+    Route::get('/profile', [App\Http\Controllers\Customer\CustomerController::class, 'showProfile'])->name('profile');
+    Route::patch ('/profile/update', [App\Http\Controllers\Customer\CustomerController::class, 'updateProfile'])->name('profile.update');
+});
+

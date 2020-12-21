@@ -1,29 +1,19 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Customer;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class AdminController extends Controller
+
+class CustomerController extends Controller
 {
-    public function index()
-    {
-        $userTitle = 'admin';
-
-        return view('admin.home', [
-            'userTitle' => $userTitle,
-            'username' => Auth::user()->username,
-            'avatar' => Auth::user()->profile->avatar,
-        ]);
-    }
-
     public function showProfile() {
-        $userTitle = 'admin';
+        $userTitle = 'customer';
 
-        return view('admin.profile', [
+        return view('customer.profile', [
             'username' => Auth::user()->username,
             'real_name' => Auth::user()->profile->real_name,
             'email' => Auth::user()->profile->email,

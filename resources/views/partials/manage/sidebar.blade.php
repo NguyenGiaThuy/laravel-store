@@ -5,18 +5,21 @@
 
       Tip 2: you can also add an image using data-image tag
     -->
-    <div class="logo"><a href="{{ route($userTitle . '.home') }}" class="simple-text logo-normal">
+    <div class="logo"><a href="@if(Auth::user()->role_id != 1) {{ route($userTitle . '.home') }} @endif"
+                         class="simple-text logo-normal">
             {{ $userTitle }}
         </a>
     </div>
     <div class="sidebar-wrapper">
         <ul class="nav">
-            <li class="nav-item active  ">
-                <a class="nav-link" href="{{ route($userTitle . '.home') }}">
-                    <i class="material-icons">dashboard</i>
-                    <p>Dashboard</p>
-                </a>
-            </li>
+            @if(Auth::user()->role_id != 1)
+                <li class="nav-item active  ">
+                    <a class="nav-link" href=" {{ route($userTitle . '.home') }} ">
+                        <i class="material-icons">dashboard</i>
+                        <p>Dashboard</p>
+                    </a>
+                </li>
+            @endif
             <li class="nav-item ">
                 <a class="nav-link" href="{{ route($userTitle . '.profile') }}">
                     <i class="material-icons">person</i>
@@ -30,7 +33,7 @@
                         <p>Users Manager</p>
                     </a>
                 </li>
-            @else
+            @elseif($userTitle == 'editor')
                 <li class="nav-item ">
                     <a class="nav-link" href="{{ route('editor.catalogs.index') }}">
                         <i class="material-icons">filter_list</i>

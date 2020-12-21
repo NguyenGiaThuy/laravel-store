@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers\Editor;
 
-use App\Models\Profile;
 use App\Http\Controllers\Controller;
-use App\Models\User;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;

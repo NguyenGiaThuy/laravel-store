@@ -54,6 +54,9 @@ class RegisterController extends Controller
             'username' => ['required', 'string', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'email' => ['required', 'string', 'max:255', 'unique:profiles'],
+            'real_name' => ['required', 'string', 'max:255'],
+            'phone_number' => ['string', 'max:255'],
+            'address' => ['string', 'max:255'],
         ]);
     }
 
@@ -72,8 +75,10 @@ class RegisterController extends Controller
         ]);
 
         $profile = Profile::create([
-            'real_name' => $data['username'],
+            'real_name' => $data['real_name'],
             'email' => $data['email'],
+            'phone_number' => $data['phone_number'],
+            'address' => $data['address'],
             'user_id' => $user->id,
         ]);
 

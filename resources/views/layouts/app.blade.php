@@ -64,7 +64,7 @@
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 @if(Auth::user()->role_id != 2 && Auth::user()->role_id != 3)
-                                    <a class="dropdown-item" href="">
+                                    <a class="dropdown-item" href="{{ route('customer.profile') }}">
                                         {{ __('Profile') }}
                                     </a>
                                     <a class="dropdown-item" href="">

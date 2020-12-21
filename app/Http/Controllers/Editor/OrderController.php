@@ -3,10 +3,8 @@
 namespace App\Http\Controllers\Editor;
 
 use App\Http\Controllers\Controller;
-use App\Models\Catalog;
 use App\Models\Order;
 use App\Models\Product;
-use App\Models\Profile;
 use App\Models\User;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
