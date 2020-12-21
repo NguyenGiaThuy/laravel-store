@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Editor;
 
 use App\Http\Controllers\Controller;
-use App\Models\Catalog;
 use App\Models\Product;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
@@ -127,12 +126,8 @@ class ProductController extends Controller
             'price' => 'required|integer|gte:0',
             'type' => 'nullable|string|max:255',
             'image' => 'nullable|string',
-            'catalog_id' => 'nullable|integer|gte:1',
+            'catalog_id' => 'nullable|integer|gte:1|exists:catalogs,id',
         ]);
-
-        if(Catalog::find(catalog_id) == null) {
-            return redirect()->back()->with('error', 'Catalog does not exist!');
-        }
 
         $productInput = $request->only('product_name', 'brand', 'price', 'type', 'image', 'catalog_id');
 
