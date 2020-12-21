@@ -20,7 +20,7 @@ class CreateProductsTable extends Migration
             $table->integer('price')->unsigned();
             $table->string('type')->nullable();
             $table->string('image')->nullable();
-            $table->integer('catalog_id')->unsigned()->nullable();
+            $table->bigInteger('catalog_id')->unsigned()->nullable();
             $table->timestamps();
         });
     }

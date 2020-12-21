@@ -40,7 +40,7 @@
                     <td>{{ $product->price }}</td>
                     <td class="text-capitalize">{{ $product->type }}</td>
                     <td>
-                        @if($product->catalog_id != null)
+                        @if($product->catalog != null)
                             <a class="text-capitalize" href="{{ route('editor.catalogs.show', $product->catalog_id) }}">{{ $product->catalog->catalog_name }}</a>
                         @endif
                     </td>
