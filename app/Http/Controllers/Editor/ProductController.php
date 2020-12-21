@@ -126,7 +126,7 @@ class ProductController extends Controller
             'price' => 'required|integer|gte:0',
             'type' => 'nullable|string|max:255',
             'image' => 'nullable|string',
-            'catalog_id' => 'nullable|integer|gte:1',
+            'catalog_id' => 'nullable|integer|gte:1|exists:catalogs,id',
         ]);
 
         $productInput = $request->only('product_name', 'brand', 'price', 'type', 'image', 'catalog_id');
