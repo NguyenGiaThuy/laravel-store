@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use App\Models\Catalog;
 use App\Models\Order;
-use App\Models\OrderDetail;
 use App\Models\Product;
 use App\Models\Profile;
 use App\Models\Role;

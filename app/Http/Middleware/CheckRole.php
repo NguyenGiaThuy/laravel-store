@@ -20,14 +20,20 @@ class CheckRole
     {
         $user = Auth::user();
 
-        if(strpos($request->getRequestUri(), 'admin') != false) {
-            if($user->role_id != 2) {
+        if (strpos($request->getRequestUri(), 'admin') != false) {
+            if ($user == null) {
+                abort(403, 'Unauthorized action');
+            }
+            if ($user->role_id != 2) {
                 abort(403, 'Unauthorized action');
             }
         }
 
-        if(strpos($request->getRequestUri(), 'editor') != false) {
-            if($user->role_id != 3) {
+        if (strpos($request->getRequestUri(), 'editor') != false) {
+            if ($user == null) {
+                abort(403, 'Unauthorized action');
+            }
+            if ($user->role_id != 3) {
                 abort(403, 'Unauthorized action');
             }
         }
